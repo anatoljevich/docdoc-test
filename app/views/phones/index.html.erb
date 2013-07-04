@@ -4,7 +4,7 @@
   <tr>
     <th>Phone</th>
     <th>Name</th>
-    <th class="actions-column"></th>
+    <th class="actions-column"><%= link_to 'Download', phones_path({:format => 'txt'}) %></th>
   </tr>
   </tbody>
   <tbody id="phones">
@@ -14,8 +14,10 @@
   </tbody>
 </table>
 
+<h3>Create Phone</h3>
 <%= form_for(Phone.new, :remote => true) do |f| %>
   <%= f.text_field :number %>
   <%= f.text_field :name %>
   <%= f.submit 'Create' %>
 <% end %>
+

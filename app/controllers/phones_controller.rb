@@ -1,7 +1,11 @@
 class PhonesController < ApplicationController
   
   def index
-    @phones = Phone.order('id DESC').all
+    @phones = Phone.order('id DESC')
+    respond_to do |format|
+      format.html
+      format.text{send_data @phones.to_csv}
+    end
   end
 
   def create
@@ -38,7 +42,6 @@ class PhonesController < ApplicationController
       format.html {redirect_to phones_path}
       format.json {respond_with_bip(@phone)}
     end
-
   end
 
 end
