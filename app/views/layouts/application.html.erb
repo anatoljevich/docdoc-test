@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div id="header"><h2>Docdoc test app</h2></div>
+<div id="content">
+  <div id="flash"><%= flash[:notice] %></div>
+  <%= yield %>
+</div>
+<div id="footer"><p>phone: +375 29 xxx-xx-xx</p></div>
 </body>
 </html>

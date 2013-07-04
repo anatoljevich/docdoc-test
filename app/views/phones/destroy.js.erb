@@ -1,0 +1,4 @@
+<% if @phone && @phone.destroyed? %>
+$("#phone-<%= @phone.id %>").remove();
+<% end %>
+$("#flash").html("<%= escape_javascript(flash[:notice]) %>");

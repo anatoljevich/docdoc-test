@@ -1,0 +1,5 @@
+<tr id="phone-<%= phone.id %>">
+  <td><%= phone.number %></td>
+  <td> <%= best_in_place phone, :name, :data => {:number => phone.number}  %></td>
+  <td><%= link_to 'Delete', phone_path(phone), :method => :delete, :remote => true, :confirm => 'Are you sure to remove this record?' %></td>
+</tr>

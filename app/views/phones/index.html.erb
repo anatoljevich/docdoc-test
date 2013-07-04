@@ -1,0 +1,21 @@
+<div id="error-messages"><%= error_messages_for(Phone.new) %></div>
+<table class="def-table">
+  <tbody>
+  <tr>
+    <th>Phone</th>
+    <th>Name</th>
+    <th class="actions-column"></th>
+  </tr>
+  </tbody>
+  <tbody id="phones">
+  <% @phones.each do |phone| %>
+    <%= render :partial => "phone", :object => phone %>
+  <% end %>
+  </tbody>
+</table>
+
+<%= form_for(Phone.new, :remote => true) do |f| %>
+  <%= f.text_field :number %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Create' %>
+<% end %>

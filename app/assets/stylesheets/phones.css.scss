@@ -1,0 +1,77 @@
+// Place all the styles related to the phones controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font-color:#333;
+$back-color:#2496ff;
+$link-color:#0000ee;
+$error-color:#f00;
+$flash-color:#109405;
+
+@mixin round-corners($radius) {
+    border-radius:$radius;
+    -moz-border-radius:$radius;
+    -webkit-border-radius:$radius;
+}
+
+@mixin centered-box{
+    margin:0 auto;
+    width:800px;
+}
+
+body{
+    color: $font-color;
+    background-color:$back-color;
+    font-family:Verdana;
+    font-size:14px
+}
+
+a {color:$link-color};
+
+#flash {
+    text-align:center;
+    font-size:12px;
+    color:$flash-color;
+}
+
+#content {
+    @include centered-box;
+    padding:20px;
+    background-color:#fff;
+    @include round-corners(10px);
+}
+
+.def-table {
+    width:100%;
+    border:none;
+
+    th {text-align:left; padding: 4px; width:42%};
+    td {padding:4px};
+    th.actions-column {width:16%};
+}
+
+#new_phone {
+    margin-top:20px
+}
+
+.error-messages {
+    font-size:12px;
+    padding:2px;
+    list-style-type:none;
+    color:$error-color;
+}
+
+.best_in_place {
+    display:block;
+    cursor:text;
+    width:100%;
+}
+
+#header {
+    @include centered-box;
+    color:#fff;
+}
+
+#footer {
+    @include centered-box;
+}

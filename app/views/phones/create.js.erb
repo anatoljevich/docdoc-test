@@ -1,0 +1,9 @@
+<% if @phone.new_record? %>
+  $("#flash").html("<%=  escape_javascript(error_messages_for(@phone)) %>");
+<% else %>
+  $("#phones").prepend('<%=escape_javascript( render(:partial => "phone", :object => @phone)) %>')
+  $("#flash").html("<%= escape_javascript(flash[:notice]) %>");
+<% end %>
+$("#phone_number").val('');
+$("#phone_name").val('');
+
