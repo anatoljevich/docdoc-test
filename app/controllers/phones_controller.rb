@@ -25,7 +25,7 @@ class PhonesController < ApplicationController
       @phone.destroy
       "Record was deleted."
     else
-      "Unable to delete record"
+      "Unable to delete record."
     end
     respond_to do |format|
       format.html {flash.keep; redirect_to phones_path}
@@ -46,10 +46,10 @@ class PhonesController < ApplicationController
 
   def upload
     @upload = Upload.new params[:upload]
-    if @upload.save
-      @upload.synchronize
+    flash[:notice] = if @upload.save && @upload.synchronize
+      'Synchronization complete.'
     else
-      flash[:notice] = 'Unable to upload data'
+      'Unable to upload data.'
     end
     redirect_to phones_path
   end
