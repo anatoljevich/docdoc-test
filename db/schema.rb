@@ -11,15 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704120915) do
+ActiveRecord::Schema.define(:version => 20130704205438) do
 
   create_table "phones", :force => true do |t|
-    t.string   "number",     :limit => 16
+    t.string   "number",        :limit => 16
     t.string   "name"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.integer  "synch_version",               :default => 0
   end
 
   add_index "phones", ["number"], :name => "index_phones_on_number", :unique => true
+
+  create_table "uploads", :force => true do |t|
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

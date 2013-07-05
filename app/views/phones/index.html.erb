@@ -21,3 +21,9 @@
   <%= f.submit 'Create' %>
 <% end %>
 
+<h3>Upload Phones</h3>
+<%= form_for(:upload, :url => '/phones/upload', :multipart => true) do |f| %>
+  <%= f.file_field :file %>
+  <%= f.submit 'Upload' %>
+<% end %>
+

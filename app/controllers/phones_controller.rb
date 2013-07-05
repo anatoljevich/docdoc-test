@@ -44,4 +44,14 @@ class PhonesController < ApplicationController
     end
   end
 
+  def upload
+    @upload = Upload.new params[:upload]
+    if @upload.save
+      @upload.synchronize
+    else
+      flash[:notice] = 'Unable to upload data'
+    end
+    redirect_to phones_path
+  end
+  
 end
