@@ -12,6 +12,9 @@ $flash-color:#109405;
     border-radius:$radius;
     -moz-border-radius:$radius;
     -webkit-border-radius:$radius;
+    background-color:#fff;
+    padding:20px;
+
 }
 
 @mixin centered-box{
@@ -36,19 +39,40 @@ a {color:$link-color};
 
 #content {
     @include centered-box;
-    padding:20px;
-    background-color:#fff;
     @include round-corners(10px);
 }
+
+.content-bottom {
+    @include centered-box;
+    width:840px;
+}
+
+#create-phone {
+    float:left;
+    width:375px;
+    height:110px;
+    margin:10px 5px 10px 0px;
+    @include round-corners(10px);
+}
+
+#upload-phone {
+    float:left;
+    width:375px;
+    height:110px;
+    margin:10px 0px 10px 5px;    
+    @include round-corners(10px);
+}
+
+#phones-list {height:300px; overflow:auto};
 
 .def-table {
     width:100%;
     border:none;
-
     th {text-align:left; padding: 4px; width:42%};
-    td {padding:4px};
-    th.actions-column {width:16%};
+    td {padding:4px; width:42%};
 }
+
+.best_in_place:hover {background-color:#ffffa1}
 
 #new_phone {
     margin-top:20px

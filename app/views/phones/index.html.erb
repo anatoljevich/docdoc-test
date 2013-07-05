@@ -1,29 +1,35 @@
+<div id="content">
+  <div id="flash"><%= flash[:notice] %></div>
 <div id="error-messages"><%= error_messages_for(Phone.new) %></div>
 <table class="def-table">
-  <tbody>
   <tr>
     <th>Phone</th>
     <th>Name</th>
-    <th class="actions-column"><%= link_to 'Download', phones_path({:format => 'txt'}) %></th>
+    <th><%= link_to 'Download', phones_path({:format => 'txt'}) %></th>
   </tr>
-  </tbody>
-  <tbody id="phones">
+  </table>
+  <div id="phones-list">
+  <table class="def-table">
   <% @phones.each do |phone| %>
     <%= render :partial => "phone", :object => phone %>
   <% end %>
-  </tbody>
-</table>
-
-<h3>Create Phone</h3>
-<%= form_for(Phone.new, :remote => true) do |f| %>
-  <%= f.text_field :number %>
-  <%= f.text_field :name %>
-  <%= f.submit 'Create' %>
-<% end %>
-
-<h3>Upload Phones</h3>
-<%= form_for(:upload, :url => '/phones/upload', :multipart => true) do |f| %>
-  <%= f.file_field :file %>
-  <%= f.submit 'Upload' %>
-<% end %>
-
+  </table>
+  </div>
+</div>
+<div class="content-bottom">
+  <div id="create-phone">
+  <h3>Create Phone</h3>
+  <%= form_for(Phone.new, :remote => true) do |f| %>
+    <%= f.text_field :number, :placeholder => 'Phone' %>
+    <%= f.text_field :name, :placeholder => 'Name' %>
+    <%= f.submit 'Create' %>
+  <% end %>
+  </div>
+  <div id="upload-phone">
+  <h3>Upload Phones</h3>
+  <%= form_for(:upload, :url => '/phones/upload', :multipart => true) do |f| %>
+    <%= f.file_field :file %>
+    <%= f.submit 'Upload' %>
+  <% end %>
+  </div>
+</div>
