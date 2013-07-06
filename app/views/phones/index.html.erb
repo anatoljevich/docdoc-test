@@ -9,7 +9,7 @@
   </tr>
   </table>
   <div id="phones-list">
-  <table class="def-table">
+  <table class="def-table" id="phones-table">
   <% @phones.each do |phone| %>
     <%= render :partial => "phone", :object => phone %>
   <% end %>
