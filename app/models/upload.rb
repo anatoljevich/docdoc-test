@@ -15,7 +15,7 @@ class Upload < ActiveRecord::Base
           phone = Phone.find_by_number(number)
           if phone
             phones_id << phone.id
-            if phone.name == name && phone.updated_at < Time.parse(updated_at)
+            if phone.name != name && phone.updated_at <= Time.parse(updated_at)
               phone.update_attribute(:name, name)
             end
           else
